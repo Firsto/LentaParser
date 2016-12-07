@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ru.firsto.lentaparser.ui.viewmodel.ArticleViewModel" />
+    </data>
+    
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="6dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{viewModel.onClickArticle()}"
+        card_view:cardCornerRadius="2dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/image_article"
+                android:src="@{viewModel.articleImage}"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/text_article_date"
+                android:text="@{viewModel.articleDate}"
+                android:layout_below="@+id/image_article"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/text_article_title"
+                android:text="@{viewModel.articleTitle}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/image_article"
+                android:textSize="16sp"
+                tools:text="Article Title"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
